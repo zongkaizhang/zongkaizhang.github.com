@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 _site/*
 _theme_packages/*
 
@@ -8,3 +9,8 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+=======
+_site/
+.sass-cache/
+.jekyll-metadata
+>>>>>>> 7a324dea1be28970c9c89c29e2b5b58097166cbf
