@@ -4,20 +4,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
+                    {% if site.qq_username %}
                     <li>
-                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+						<a href="http://wpa.qq.com/msgrd?v=3&uin={{ site.qq_username }}&site=qq&menu=yes">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% if site.twitter_username %}
-                    <li>
-                        <a href="https://twitter.com/{{ site.twitter_username }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                <i class="fa fa-qq fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
