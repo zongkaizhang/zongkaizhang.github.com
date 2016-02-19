@@ -1012,4 +1012,15 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
 }
+/* zk 
+ * duoshuo css
+ */
+.ds-sync {
+  display:none !important;/*隐藏评论框底部分享*/
+}
+#ds-thread #ds-reset .ds-powered-by {
+  display:none;
+}
+
+
 
