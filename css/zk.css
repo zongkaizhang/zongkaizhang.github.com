@@ -2,7 +2,7 @@
  * css for zkv5.blog v1.0.0(http://www.zkv5.com)
  * Copyright 2016 zzk <34034537@qq.com>
  * modify from Hux Blog<huxpro@gmail.com>
- * /
+ */
  
 @media (min-width: 1200px) {
   .post-container,
@@ -16,30 +16,22 @@
   }
 }
 .sidebar-container {
-  color: #bfbfbf;
   font-size: 14px;
 }
 .sidebar-container h5 {
-  color: #808080;
   padding-bottom: 1em;
 }
 .sidebar-container h5 a {
-  color: #808080 !important;
-  text-decoration: none;
 }
 .sidebar-container a {
-  color: #bfbfbf !important;
 }
 .sidebar-container a:hover,
 .sidebar-container a:active {
-  color: #0085a1 !important;
 }
 .sidebar-container .tags a {
-  border-color: #bfbfbf;
 }
 .sidebar-container .tags a:hover,
 .sidebar-container .tags a:active {
-  border-color: #0085a1;
 }
 .sidebar-container .short-about img {
   width: 80%;
@@ -1016,10 +1008,66 @@ img::-moz-selection {
  * duoshuo css
  */
 .ds-sync {
-  display:none !important;/*隐藏评论框底部分享*/
+  display:none !important;
 }
 #ds-thread #ds-reset .ds-powered-by {
   display:none;
+}
+
+/* zk
+ * markdown-toc
+ */
+#markdown-toc {
+	display:none; 
+}
+
+.catalog-menu {
+}
+.catalog-menu h3 { text-align: center; margin: 6px 0; }
+.catalog-menu ul { padding: 0px; margin: 0px; }
+.catalog-menu ul li { margin-top: 2px; margin-left: 30px; list-style-type: circle; }
+.catalog-menu ul li ul { display: none; }
+.catalog-menu a { }
+.catalog-menu a:visited { }
+.catalog-menu .catalog-menu-content { padding: 10px; }
+.catalog-menu .catalog-menu-content > li { margin-top: 10px; margin-left: 12px; list-style-type: square; }
+.catalog-menu .catalog-menu-content > li:first-child { margin-top: 0; }
+@media only screen and (max-width: 1024px) { .catalog-menu { display: none; } }
+
+.hljs { width: 96%; font-size: 1em; line-height: 20px; font-family: 'Consolas', 'Lucida Grande', arial, sans-serif; padding: 20px; margin-top: 10px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #8B5F65; background-color: #EAEAEA; white-space: pre-wrap; word-wrap: break-word; word-break: break-all; }
+
+/* zk
+ * returntop
+ */
+#top {
+	position:fixed;
+	right:25px;
+	bottom:10px;
+	width:60px;
+	height:60px;
+	background-color: #bbb;
+	display:none;
+	border-radius:7px;
+	opacity: 0.8;
+	z-index: 888;
+}
+
+#top .arrow{
+	margin:0 auto;
+	padding-top:11px;
+	width:0;
+	height: 0;
+	border-right: 15px solid transparent;
+	border-left: 15px solid transparent; 
+	border-bottom: 15px solid #7f7f7f;
+}
+
+#top .stick{
+	margin:0 auto;
+	padding-bottom:21px;
+	width: 13px;
+	border-bottom: 13px solid #bbb;
+	background-color: #7f7f7f;
 }
 
 

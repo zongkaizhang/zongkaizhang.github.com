@@ -6,7 +6,7 @@ layout: default
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <h1>{{ page.title }}</h1>
                     {% if page.subtitle %}
@@ -23,16 +23,19 @@ layout: default
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-1
+						col-md-8 col-md-offset-1
+						col-sm-12 col-xs-12 postlist-container">
+<!--            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> -->
 
 				{{ content }}
 
 				{% include donate.html %}
-				<!-- 多说评论框 start -->
+				<!-- duoshuo comment start -->
 
 				<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="gaohaoyang.github.io{{ page.url }}"></div>
 
-				<!-- 多说评论框 end -->
+				<!-- duoshao comment end -->
 
                 <hr>
 
@@ -50,8 +53,20 @@ layout: default
                 </ul>
 
             </div>
+            <div class="col-lg-3 col-lg-offset-0
+						col-md-3 col-md-offset-0
+						col-sm-12 col-xs-12 sidebar-container">
+				<section>
+				<hr class="hidden-sm hidden-xs">
+				<div class="catalog-menu">
+					<h3>目&nbsp;&nbsp;录</h3>
+					<div class="catalog-menu-content"></div>
+				</div>
+				</section>
+			</div>
         </div>
     </div>
 </article>
+
 
 <hr>

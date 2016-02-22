@@ -7,8 +7,9 @@ tags: [github,gem,jeykyll,blog]
 ---
 {% include JB/setup %}
 
-* 目录
-{:toc #目录}
+---
+* content
+{:toc}
 
 ## 概述 ##
 ---

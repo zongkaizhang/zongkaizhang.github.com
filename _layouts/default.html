@@ -7,7 +7,16 @@
 
     {% include nav.html %}
 
+	<a name="top"></a>
+
     {{ content }}
+
+	<div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+		<a href="javascript:;">
+			<div class="arrow"></div>
+			<div class="stick"></div>
+		</a>
+	</div>
 
     {% include footer.html %}
 
@@ -15,15 +24,15 @@
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"zkv5123"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-</script>
+		var duoshuoQuery = {short_name:"zkv5123"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
 	<!-- 多说公共JS代码 end -->
 
 </body>
