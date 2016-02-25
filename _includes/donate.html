@@ -29,21 +29,10 @@
 	</style>
 	<!-- /css -->
 
-	<!-- form -->
-	<form id="donate" action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
-		<input name="optEmail" type="hidden" value="ice_he@foxmail.com" />
-		<input name="payAmount" type="hidden" value="1.00" />
-		<input id="title" name="title" type="hidden" value="打赏《<%= item.title.substr(0, 16) %>》"/>
-		<input name="memo" type="hidden" value="留下您的大名及联系方式(email,blog,etc)，多交流共勉共进：" />
-	</form>
-	<!-- /form -->
-
 	<!-- btn_donate & tips -->
 	<div id="donate_board" class="donate_bar center">
 		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
 		<span class="donate_txt">
-			&uarr;<br/>
-			If you enjoy the article, please feel free to <span class="bold">donate~</span> Thx.<br/>
 			若本文对您有帮助，<span class="bold">求打赏~</span> 谢谢您的鼓励。
 		</span>
 		<br/>
@@ -52,11 +41,11 @@
 
 	<!-- donate guide -->
 	<div id="donate_guide" class="donate_bar center hidden">
-		<a href="#" title="Alipay_Scan_Payment" class="fancybox" rel="article0">
+		<a href="{{ site.baseurl }}/img/donate/ali_pay.jpg" class="fancybox" rel="article0">
 			<img src="{{ site.baseurl }}/img/donate/ali_pay.jpg" title="Donate 打赏" height="164px" width="164px"/>
 
-		<a href="#" class="fancybox" rel="article0">
-			<img src="{{ site.baseurl }}/img/donate/wechat_pay.jpg" title="Donate 打赏" height="164px" width="auto"/>
+		<a href="{{ site.baseurl }}/img/donate/wechat_pay.jpg" class="fancybox" rel="article0">
+			<img src="{{ site.baseurl }}/img/donate/wechat_pay.jpg" title="Donate 打赏" height="164px" width="164px"/>
 		</a>
 	</div>
 	<!-- /donate guide -->
