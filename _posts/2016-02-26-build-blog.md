@@ -209,3 +209,83 @@ Bingo！打开浏览器，输入`http://127.0.0.1:4000`或`http://localhost:4000
 </a>
 
 **在启动jekyll服务的界面按ctrl+c 即可停止服务**
+
+# 发布 #
+---
+
+> 本节以我自己的博客为例为大家演示发布一篇博客。
+
+## markdown ##
+
+我们采用markdown编辑器作为写博客的主要编写工具。
+
+> Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。
+ 
+>关于markdown请参考[http://wowubuntu.com/markdown/#list](http://wowubuntu.com/markdown/#list)
+
+
+## 新建文档 ##
+
+在博客目录下输入命令`rake post title="abc" subtitle="123" date="2016-02-25" tags=[tag1,tag2] category="category"`。
+
+*title:文章主标题。例子中用的是abc作为主标题*
+
+*subtitle:文章副标题。例子中用的是123作为副标题*
+
+*date:时间。注意格式*
+
+*tags:标签。支持多个标签。例子中设置了两个标签tag1,tag2*
+
+*category:分类。例子中设置了分类为category*
+
+<a >
+    <img src="{{ site.baseurl }}/img/blog/post_new.png">
+</a>
+
+输入命令后，已经生成博客文本，执行git命令：git status可以看到在_post文件夹下新生成的.md文本(markdown文本)。
+
+<a >
+    <img src="{{ site.baseurl }}/img/blog/post_new_file.png">
+</a>
+
+## 填充文档 ##
+
+打开新生成的文档，我们可以看到生成的内容有：
+
+```
+---
+layout: post          # post类文章，与page类分开
+title: "abc"          # 主标题
+subtitle: "123"       # 副标题
+category: "category"  # 分类
+tags: [tag1,tag2]     # 文章标签
+---
+{% include JB/setup %}# 文章框架
+---
+* content             # 目录
+                      # 以下为文章内容
+```
+
+我们在目录后面添加文章内容：`这是我的第一篇文章。`后保存。
+
+## 本地调试 ##
+
+博客目录下启动jekyll服务。
+
+浏览器输入[http://localhost:4000](http://localhost:4000)。
+
+<a >
+    <img src="{{ site.baseurl }}/img/blog/home_post.png">
+</a>
+
+在主页我们看到了新发布的文章，标题，副标题，时间都与我们设置的吻合。点击文章标题进入文章页面。
+
+<a >
+    <img src="{{ site.baseurl }}/img/blog/post_new_docment.png">
+</a>
+
+文章页面显示的文章内容也没错，发布成功！
+
+## 提交至Github服务器 ##
+
+文章编写完成，通过Git命令提交至你的Github pages仓库内，刷新你的Github pages网址，即可看到新发布的文章。
