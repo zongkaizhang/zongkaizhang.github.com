@@ -3,7 +3,7 @@ layout: post
 title: "建立属于自己的博客"
 subtitle: "开辟自己的一片天地"
 category: "网站建设"
-tags: [网站,博客,Github,jekyll]
+tags: [网站,Github,jekyll]
 ---
 {% include JB/setup %}
 ---

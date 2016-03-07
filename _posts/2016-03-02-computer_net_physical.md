@@ -3,7 +3,7 @@ layout: post
 title: "计算机网络之物理层"
 subtitle: "计算机工程的基石"
 category: "计算机"
-tags: [链路层,TCP。IP]
+tags: [链路层,TCP/IP]
 ---
 {% include JB/setup %}
 ---
