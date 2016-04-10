@@ -54,8 +54,7 @@ tags: [算法]
 
 ## 程序示例 ##
 
-````
-
+```C
 #include<stdio.h>
 #include <sys/time.h>
 #include <unistd.h>
@@ -113,8 +112,7 @@ int main(void)
 
 	return 0;
 }
-
-````
+```
 
 # 选择排序 #
 
