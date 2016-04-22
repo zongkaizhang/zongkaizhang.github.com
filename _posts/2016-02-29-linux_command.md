@@ -83,8 +83,6 @@ free                # 显示物理内存和Swap区信息
 
 ## 权限 ##
 
-*两种方式可以改变目录文件的权限*
-
 - chmod 权限数值 目录文件
 
 变更档案或目录的存取权限为指定的权限数值chmod的ch是change，mod是mode
@@ -112,6 +110,13 @@ r、w或x，字串前用`+`、`-`表示增加或移除，或`=`直接指派权�
 例：`chmod 777 myfile`或`chmod a+rwx myfile` 设定myfile的存取权限为所有人皆可读、可写、可执行
 
 例：`chmod a+x myfile`所有人（all）增加执行权限
+
+- charp 用户组 目录文件
+
+- chown 用户名:用户组 文件目录
+
+**上述命令可添加-R用于递归**
+
 
 ## 查找 ##
 
@@ -157,6 +162,7 @@ cp -r 目录1 目录2   # 复制目录1为目录2，目录2不存在时会建立
 ln -s 实体文件 链接名       # 建立符号链接
 touch 文件                  # 变更档案时间为目前时间
 mv 文件或目录1 文件或目录2  # 档案2不存在时是改名，档案2存在且为目录時是搬移
+dd if=/dev/zero bs=1024 count=2 of=2m.file #生成一个2M的文件
 ```
 
 ## 解压缩 ##
@@ -164,6 +170,7 @@ mv 文件或目录1 文件或目录2  # 档案2不存在时是改名，档案2�
 ```
 tar cf 压缩文件.tar 要压缩文件或目录 # 將指定的文件或目录压缩到压缩文件.tar（tar=tape archice，c=create）
 tar xf 压缩文件.tar                # 解压缩 压缩文件.tar（x=extract）
+tar tvf 压缩文件.tar               # 不解压文件查看压缩文件内容
 tar cfz 压缩文件.tar.gz            # 把.tar压缩再用GZip压缩
 tar xfz 压缩文件.tar.gz            # 用GZip解压缩压缩文件.tar.gz
 tar cfj 压缩文件.tar.bz2           # 把.tar压缩后再用BZip2压缩
