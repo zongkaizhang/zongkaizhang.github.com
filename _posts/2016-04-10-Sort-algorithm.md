@@ -31,6 +31,23 @@ tags: [算法]
 1. 将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。
 2. 从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）
 
+## 程序示例 ##
+
+{% highlight c++ %}
+void Insert(int *a, int n)
+{
+	int i, j, key;
+
+	for (i = 1; i < n; i ++) {
+		key = a[i];
+		for( j = i; (j > 0) && (a[j-1] > key);j --) {
+			a[j] = a[j-1];
+		}
+		a[j] = key;
+	}   
+}
+{% endhighlight %}
+
 # 希尔排序 #
 
 <a >
@@ -54,65 +71,22 @@ tags: [算法]
 
 ## 程序示例 ##
 
-```C
-#include<stdio.h>
-#include <sys/time.h>
-#include <unistd.h>
-
-#define MAX     8
-/* 
- * ===  FUNCTION  ======================================================================
- *         Name:  insert
- *  Description:  insert sort
- * =====================================================================================
- */
-void Insert(int *a, int n)
+{% highlight c++ %}
+void Shell(int *a, int n)
 {
-	int i, j, key;
-	//控制需要插入的元素
-	for (i = 1; i < n; i ++) {
-		//key为要插入的元素
-		key = a[i];
-		//查找要插入的位置,循环结束,则找到插入位置
-		for( j=i; (j > 0) && (a[j-1] > key);j --) {
-			//移动元素的位置.供要插入元素使用
-			a[j] = a[j-1];
+	int i, j, k, tmp;
+
+	for(i = n/2; i > 0; i/=2) {
+		for(j = i; j < n; j ++) {
+			tmp = a[j];
+			for(k = j - i; (k >= 0 && tmp < a[k]); k -= i) {
+				a[k + i] = a[k];
+			}
+			a[k + i] = tmp;
 		}
-		//插入需要插入的元素
-		a[j] = key;
 	}   
 }
-
-/* 
- * ===  FUNCTION  ======================================================================
- *         Name:  main
- *  Description:  main function
- * =====================================================================================
- */
-int main(void)
-{
-	int a[MAX]={8,7,6,5,4,3,2,1};
-	int i;
-	struct timeval t_start, t_end;
-
-	printf("Start sort...\n");
-
-	gettimeofday(&t_start,NULL);
-	for (i=0; i<1000; i++)
-		Insert(a,MAX);
-	gettimeofday(&t_end,NULL);
-
-	for(i=0; i < MAX; i++)
-	{
-		printf("%d ",a[i]);
-	}
-	printf("\nTime use:%2ds-%3dus\n",
-			(t_end.tv_sec - t_start.tv_sec),
-			(t_end.tv_usec - t_start.tv_usec));
-
-	return 0;
-}
-```
+{% endhighlight %}
 
 # 选择排序 #
 
@@ -127,6 +101,29 @@ int main(void)
 1. 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置
 2. 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
 3. 重复第二步，直到所有元素均排序完毕。
+
+## 程序示例 ##
+
+{% highlight c++ %}
+void Select(int *a, int n)
+{
+	int tmp, i, j;
+	int select_po;
+
+	for(i = 0; i < n - 1; i ++) {
+		tmp = a[i];
+		select_po = i;
+		for(j = i + 1; j < n; j ++) {
+			if(a[j] < tmp) {
+				tmp = a[j];
+				select_po = j;
+			}
+		}
+		a[select_po] = a[i];
+		a[i] = tmp;
+	}
+}
+{% endhighlight %}
 
 # 冒泡排序 #
 
@@ -143,6 +140,24 @@ int main(void)
 3. 针对所有的元素重复以上的步骤，除了最后一个。
 4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 
+## 程序示例 ##
+
+{% highlight c++ %}
+void Bubble(int* a,int n)
+{
+	int tmp, i, j;
+	for(i = 1; i < n; i ++) {
+		for(j = n - 1; j >= i; j --) {
+			if(a[j] < a[j-1]) {
+				tmp = a[j-1];
+				a[j-1] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+}
+{% endhighlight %}
+
 # 归并排序 #
 
 <a >
@@ -157,6 +172,54 @@ int main(void)
 4. 重复步骤3直到某一指针达到序列尾
 5. 将另一序列剩下的所有元素直接复制到合并序列尾
 
+## 程序示例 ##
+
+{% highlight c++ %}
+void merge(int *a, int start, int mid, int end)
+{
+	int n1 = mid - start + 1;
+	int n2 = end - mid;
+	int left[n1], right[n2];
+	int i, j, k;
+
+	for (i = 0; i < n1; i++)
+		left[i] = a[start+i];
+	for (j = 0; j < n2; j++)
+		right[j] = a[mid+1+j];
+	i = j = 0;
+	k = start;
+	while (i < n1 && j < n2)
+		if (left[i] < right[j])
+			a[k++] = left[i++];
+		else
+			a[k++] = right[j++];
+
+	while (i < n1) 
+		a[k++] = left[i++];
+	while (j < n2) 
+		a[k++] = right[j++];
+}
+
+void Merge_Recursion(int *a, int start, int end)
+{
+	int mid;
+	if (start < end)
+	{   
+		mid = (start + end) / 2;
+
+		Merge_Recursion(a, start, mid);
+		Merge_Recursion(a, mid+1, end);
+		merge(a, start, mid, end);
+
+	}   
+}
+
+void Merge(int* a, int n)
+{
+	Merge_Recursion(a, 0, n - 1); 
+}
+{% endhighlight %}
+
 # 快速排序 #
 
 <a >
@@ -169,13 +232,46 @@ int main(void)
 
 ## 算法步骤 ##
 
-
-
 1. 从数列中挑出一个元素，称为 “基准”（pivot）
 2. 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。
 3. 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。
 
 递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会退出，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。
+
+## 程序示例 ##
+
+{% highlight c++ %}
+void Quick_Recursion(int *a, int left, int right)
+{
+	int i,j;
+	int middle,tmp;
+	i = left;
+	j = right;
+	middle = a[(left+right)/2];
+	do{
+		while((a[i] < middle) && (i < right))
+			i ++;
+		while((a[j] > middle) && (j > left))
+			j --;
+		if(i <= j) {
+			tmp = a[i];
+			a[i] = a[j];
+			a[j] = tmp;
+			i ++;
+			j --;
+		}
+	}while(i <= j);
+	if(left<j)
+		Quick_Recursion(a, left, j);
+	if(right>i)
+		Quick_Recursion(a, i, right);
+}
+
+void Quick(int* a, int n)
+{
+	Quick_Recursion(a, 0, n - 1);
+}
+{% endhighlight %}
 
 # 堆排序 #
 
@@ -193,6 +289,44 @@ int main(void)
 2. 把堆首（最大值）和堆尾互换
 3. 把堆的尺寸缩小1，并调用shift_down(0),目的是把新的数组顶端数据调整到相应位置
 4. 重复步骤2，直到堆的尺寸为1
+
+## 程序示例 ##
+
+{% highlight c++ %}
+void Max_Heap(int *a, int i, int n)
+{
+	int j, tmp;
+
+	tmp = a[i];
+	j = 2 * i + 1;
+	while(j < n){ 
+		if(j + 1 < n && a[j + 1] > a[j])
+			j ++; 
+		if(a[j] <= tmp)
+			break;
+
+		a[i] = a[j];
+		i = j;
+		j = 2 * i + 1;
+	}   
+	a[i] = tmp;
+}
+
+void Heap(int* a, int n)
+{
+	int i, tmp;
+
+	for(i = n/2; i >= 0; i--)
+		Max_Heap(a, i, n); 
+	for(i = n - 1; i >= 1; i--)
+	{   
+		tmp = a[i];
+		a[i] = a[0];
+		a[0] = tmp;
+		Max_Heap(a, 0, i); 
+	}   
+}
+{% endhighlight %}
 
 # 基数排序 #
 
@@ -232,6 +366,11 @@ O(n   +   m   *   n/m*log(n/m))   =   O(n   +   nlogn   –   nlogm)
 
 2）其次待排序的元素都要在一定的范围内等等。
 
+## 程序示例 ##
+
+{% highlight c++ %}
+{% endhighlight %}
+
 # 总结 #
 
 各种排序的稳定性，时间复杂度、空间复杂度、稳定性总结如下图：
@@ -243,17 +382,20 @@ O(n   +   m   *   n/m*log(n/m))   =   O(n   +   nlogn   –   nlogm)
 ## 时间复杂度 ##
 
 1. 平方阶(O(n2))排序
-各类简单排序:直接插入、直接选择和冒泡排序；
+
+    各类简单排序:直接插入、直接选择和冒泡排序；
 
 2. 线性对数阶(O(nlog2n))排序
-　　快速排序、堆排序和归并排序；
 
-3. O(n1+§))排序,§是介于0和1之间的常数。
+    快速排序、堆排序和归并排序；
 
-       希尔排序
+3. O(n1+§))排序,§是介于0和1之间的常数
+
+    希尔排序;
 
 4. 线性阶(O(n))排序
-基数排序，此外还有桶、箱排序。
+
+   基数排序，此外还有桶、箱排序。
 
 
 ## 稳定性 ##
