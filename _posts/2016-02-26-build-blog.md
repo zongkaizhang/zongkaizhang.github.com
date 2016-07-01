@@ -55,9 +55,9 @@ GitHub Pages免费的静态站点，三个特点：免费托管、自带主题�
 
 克隆Github Pages的仓库到本地
 
-```
+{% highlight c++ %}
 $ git clone git@github.com:USERNAME/USERNAME.github.com.git
-```
+{% endhighlight %}
 
 做完这一步，当前目录下就会多出一个目录:USERNAME.github.com。这个文件夹就是你的博客目录。
 
@@ -67,17 +67,17 @@ $ git clone git@github.com:USERNAME/USERNAME.github.com.git
 
 本地下载基于jekyll的博客模板到Github Pages目录下。
 
-```
+{% highlight c++ %}
 $ cd username.github.com # 进入博客目录下
 $ git pull origin master # 先同步远程文件，后面的参数会自动连接你远程的文件
 $ git status             # 查看本地自己修改了多少文件
 $ git add <files>        # 添加远程不存在的git文件
-```
+{% endhighlight %}
 
 > 如果你想在别人的Github Pages上进行修改
 > 例如:以我的这个博客为模板
 
-```
+{% highlight c++ %}
 $ git clone git@github.com:zongkaizhang/zongkaizhang.github.com.git
 $ mv zongkaizhang.github.com USERNAME.github.com # 修改成你的Github pages名称
 $ cd USERNAME.github.com # 进入博客目录下
@@ -86,17 +86,18 @@ $ git init
 $ git pull origin master # 先同步远程文件，后面的参数会自动连接你远程的文件
 $ git status             # 查看本地自己修改了多少文件
 $ git add <files>        # 添加远程不存在的git文件
-```
+{% endhighlight %}
+
 本地克隆别人的Git pages仓库，改成你的Git Pages仓库名称
 
 ## 推送 ##
 
 本地提交至Github上的仓库
 
-```
+{% highlight c++ %}
 $ git commit * -m "description" # 提交
 $ git push origin master        # 推送到远程服务器上
-```
+{% endhighlight %}
 
 # jekyll #
 ---
@@ -141,10 +142,10 @@ jekyll是一种简单的、适用于博客的、静态网站生成引擎。
 
 `gem source`可以查看gem源，一般默认的gem源在国内是不能用的，需要更换至国内的淘宝提供的源。（国外不需要此步骤）
 
-```
+{% highlight c++ %}
 gem sources --remove https://rubygems.org/ # 移除默认gem源
 gem sources --add https://ruby.taobao.org/ # 添加淘宝gem源
-```
+{% endhighlight %}
 
 <a >
     <img src="{{ site.baseurl }}/img/blog/gem_source.png">
@@ -169,10 +170,10 @@ gem sources --add https://ruby.taobao.org/ # 添加淘宝gem源
 > 以我的博客为例子进行演示
 
 
-```
+{% highlight c++ %}
 $ cd zongkaizhang.github.com
 $ jekyll s
-```
+{% endhighlight %}
 
 <a >
     <img src="{{ site.baseurl }}/img/blog/jekyll_paginate.png">
@@ -252,7 +253,7 @@ Bingo！打开浏览器，输入`http://127.0.0.1:4000`或`http://localhost:4000
 
 打开新生成的文档，我们可以看到生成的内容有：
 
-```
+{% highlight c++ %}
 ---
 layout: post          # post类文章，与page类分开
 title: "abc"          # 主标题
@@ -264,7 +265,7 @@ tags: [tag1,tag2]     # 文章标签
 ---
 * content             # 目录
                       # 以下为文章内容
-```
+{% endhighlight %}
 
 我们在目录后面添加文章内容：`这是我的第一篇文章。`后保存。
 
