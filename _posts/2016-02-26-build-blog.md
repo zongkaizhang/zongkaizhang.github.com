@@ -144,6 +144,7 @@ jekyll是一种简单的、适用于博客的、静态网站生成引擎。
 
 {% highlight c++ %}
 gem sources --remove https://rubygems.org/ # 移除默认gem源
+
 gem sources --add https://ruby.taobao.org/ # 添加淘宝gem源
 {% endhighlight %}
 
